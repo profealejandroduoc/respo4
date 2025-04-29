@@ -2,7 +2,15 @@ package com.seccion4.respo4.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.seccion4.respo4.model.Persona;
+import com.seccion4.respo4.service.PersonaService;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 
@@ -10,12 +18,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
 public class PersonaController {
+    @Autowired
+    private PersonaService personaService;
     
     @GetMapping
     public String saludar()
     {
         return "Hola esto esta funcionando!!!";
     }
+
+    @PostMapping
+    public Persona guardar(@RequestBody Persona persona){
+        return personaService.guardarPersona(persona);
+    }
+    
+    
     
     
 }
