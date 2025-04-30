@@ -12,9 +12,34 @@ import com.seccion4.respo4.model.Persona;
 public class PersonaRepository {
    private List<Persona> personas=new ArrayList<>();
 
+   PersonaRepository(){
+    
+        // Agregar las personas a la lista
+        personas.add(new Persona(1, "12345678-9", "Wacoldo", "Soto", 45));
+        personas.add(new Persona(2, "23456789-0", "Ana", "Gómez", 34));
+        personas.add(new Persona(3, "34567890-1", "Carlos", "Pérez", 29));
+        personas.add(new Persona(4, "45678901-2", "Lucía", "Martínez", 38));
+        personas.add(new Persona(5, "56789012-3", "Juan", "Rodríguez", 50));
+   }
+
     public Persona create(Persona persona){
         personas.add(persona);
         System.out.println(personas.toString());
         return persona;
+    }
+
+
+    public List<Persona> readAll(){
+        return personas;
+    }
+
+    public Persona read(int id){
+        for (Persona persona : personas) {
+            if(persona.getId()==id){
+                return persona;
+            }
+        }
+        return null;
+
     }
 }
