@@ -21,14 +21,8 @@ public class PersonaController {
     @Autowired
     private PersonaService personaService;
     
-    @GetMapping
-    public String saludar()
-    {
-        return "Hola esto esta funcionando!!!";
-    }
-
     @PostMapping
-    public Persona guardar(@RequestBody Persona persona){
+    public Persona postPersona(@RequestBody Persona persona){
         return personaService.guardarPersona(persona);
     }
     
