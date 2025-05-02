@@ -26,4 +26,21 @@ public class PersonaService {
         return personaRepository.read(id);
     }
 
+    public Persona buscarxrut(String rut) {
+        // TODO Auto-generated method stub
+        //throw new UnsupportedOperationException("Unimplemented method 'buscarxrut'");
+        return personaRepository.readxRut(rut);
+    }
+
+    public Persona modificar(int id, Persona persona)
+    {
+        return personaRepository.update(id, persona);
+    }
+
+    public String borrar(int id) {
+        // TODO Auto-generated method stub
+        
+        return personaRepository.delete(id);
+    }
+
 }
